@@ -8,11 +8,8 @@ import {
   Volume2,
   Database,
   Keyboard,
-  Key,
   Download,
   Trash2,
-  Eye,
-  EyeOff,
   Check,
 } from 'lucide-react';
 
@@ -39,7 +36,6 @@ export function SettingsDialog({
 }) {
   const [activeTab, setActiveTab] = useState('appearance');
   const [localSettings, setLocalSettings] = useState(settings);
-  const [showApiKey, setShowApiKey] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
@@ -237,36 +233,6 @@ export function SettingsDialog({
                   className="w-full p-3 rounded-xl text-xs bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
                   placeholder="Define Zeno's personality, formatting style, or constraints..."
                 />
-              </div>
-
-              {/* Custom API Key (Client override) */}
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                    <Key className="w-3.5 h-3.5" />
-                    <span>Custom Gemini API Key (Optional)</span>
-                  </label>
-                  <span className="text-[10px] text-slate-400">Stored in browser localStorage only</span>
-                </div>
-                <div className="relative">
-                  <input
-                    type={showApiKey ? 'text' : 'password'}
-                    value={localSettings.customApiKey || ''}
-                    onChange={(e) => handleChange('customApiKey', e.target.value)}
-                    placeholder="Leave empty to use server GEMINI_API_KEY"
-                    className="w-full pl-3 pr-10 py-2.5 rounded-xl text-xs bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowApiKey(!showApiKey)}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white"
-                  >
-                    {showApiKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-                  </button>
-                </div>
-                <p className="mt-1 text-[11px] text-slate-400">
-                  By default, Zeno uses the private serverless `GEMINI_API_KEY` from your environment.
-                </p>
               </div>
             </div>
           )}
