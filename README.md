@@ -4,7 +4,7 @@ A modern, production-quality AI chat web application built with React, Vite, and
 
 ---
 
-## ✨ Features (Phase 1)
+## ✨ Features
 
 - **AI Streaming Responses**: Real-time token streaming from Google Gemini via a lightweight, secure serverless `/api/chat` function.
 - **Private API Key Architecture**: `GEMINI_API_KEY` remains strictly server-side. No client-side exposure.
@@ -133,15 +133,3 @@ Open your browser at `http://localhost:5173`.
 ```
 
 ---
-
-## 🔒 Security
-
-- **Server-Side API Key**: The Gemini API key is never exposed to the client bundle. Requests are routed through the `/api/chat` serverless function.
-- **Git Protection**: `.env` is listed in `.gitignore` to prevent leaking secrets.
-
----
-
-## 📦 Phase 2 Preparation
-
-The architecture has a clean placeholder in [ChatComposer.jsx](file:///e:/React%20Projects/Zeno-Chat/src/components/composer/ChatComposer.jsx) for image attachments. When ready for Phase 2:
-- Say: `"Now move for the image part."` to activate image uploads, drag-and-drop, clipboard paste, Gemini Vision, and image generation.
